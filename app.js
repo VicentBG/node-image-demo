@@ -4,28 +4,26 @@ const app = express();
 
 const router = express.Router();
 
+const db = require('./db');
+
+const cats = require('./routes/cats');
+
 
 const path = __dirname + '/views/';
 
 const port = 8080;
 
 
-router.use((req,res,next) => {
-    console.log('/' + req.method);
-    next();
-});
+app.engine('html', require('ejs').renderFile);
 
-router.get('/', (req,res) => {
-    res.sendFile(path + 'index.html');
-});
+app.set('view engine', 'html');
 
-router.get('/cats', (req,res) => {
-    res.sendFile(path + 'cats.html');
-});
-
+app.use(express.urlencoded({ extended: true}));
 
 app.use(express.static(path));
-app.use('/', router);
+
+app.use('/cats', cats);
+
 
 app.listen(port, () => {
     console.log('Example app listening on port 8080!');

@@ -53,12 +53,13 @@
         </div>
         <div class="col-lg-4">
             <p>
-                <form action="/cats/addcat" method="post">
-                    <div class="caption">Enter Your Cattie</div>
-                    <input type="text" placeholder="Cat Name" name="name" <%= cats[i].name; %>
-                    <input type="text" placeholder="Shark Character" name="character" <%= cats[i].character; %>
-                    <button type="submit">Submit</button>
-                </form>
+                <div class="caption">Your Cats</div>
+                <ul>
+                    <% cats.forEach(function(cat) { %>
+                    <p>Name: <%= cat.name %></p>
+                    <p>Character: <%= cat.character %></p>
+                    <% }); %>
+                </ul>
             </p>
         </div>
     </div>
