@@ -11,7 +11,7 @@ const cats = require('./routes/cats');
 
 const path = __dirname + '/views/';
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 
 app.engine('html', require('ejs').renderFile);
@@ -26,5 +26,5 @@ app.use('/cats', cats);
 
 
 app.listen(port, () => {
-    console.log('Example app listening on port 8080!');
+    console.log(`Example app listening on port ${port}!`);
 });
