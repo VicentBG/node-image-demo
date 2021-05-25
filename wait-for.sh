@@ -1,7 +1,6 @@
 #!/bin/sh
 
-# original script: https://github.com/eficode/wait-
-for/blob/master/wait-for
+# original script: https://github.com/eficode/wait-for/blob/master/wait-for
 
 TIMEOUT=15
 QUIET=0
